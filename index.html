@@ -24,6 +24,13 @@
     h6 {
       font-family: "Roboto", sans-serif
     }
+       /* Estilo para centralizar o botão e manter o padrão adotado no currículo */
+    #btnSalvarComoPDF {
+      margin: 20px auto; /* Centraliza o botão horizontalmente */
+      display: block; /* Faz o botão ocupar a largura total do container */
+      width: 200px; /* Define a largura do botão */
+    
+    }
   </style>
 
 </head>
@@ -44,6 +51,7 @@
             <h2>Elisangela C. Santos</h2>
           </div>
           <div class="w3-container">
+            <!-- Informações pessoais -->
             <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-deep-purple"></i>Dev Fullstack Junior</p>
             <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-deep-purple"></i>Campinas - SP</p>
             <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-deep-purple"></i>elys.santos@hotmail.com</p>
@@ -85,9 +93,9 @@
             <br>
           </div>
         </div><br>
-
+        <!-- Botão "Salvar como PDF" -->
         <div style="text-align: center;">
-          <button onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
+          <button id="btnSalvarComoPDF" onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
         </div>
 
         <!-- End Left Column -->
@@ -96,6 +104,7 @@
       <!-- Right Column -->
       <div class="w3-twothird">
 
+         <!-- Conteúdo do currículo -->
         <div class="w3-container w3-card w3-white w3-margin-bottom">
           <h2 class="w3-text-grey w3-padding-16"><i
               class="fa fa-terminal fa-fw w3-margin-right w3-xxlarge w3-text-deep-purple"></i>Sobre</h2>
@@ -193,19 +202,19 @@
 
     <script>
       function salvarComoPDF() {
-          const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
-          const pdf = new jsPDF();
+        const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
+        const pdf = new jsPDF();
 
-          // Ajuste para garantir que a página seja totalmente carregada antes de salvar como PDF
-          pdf.addHTML(document.body, function() {
-              pdf.save(filename);
-          });
+        // Ajuste para garantir que a página seja totalmente carregada antes de salvar como PDF
+        pdf.addHTML(document.body, function() {
+          pdf.save(filename);
+        });
       }
-  </script>
+    </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   </div>
 
+    <!-- Footer -->
   <footer class="w3-container w3-deep-purple w3-center w3-margin-top">
     <p>Minhas Redes Sociais</p>
     <a href="https://github.dev/ElysSanntos" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
