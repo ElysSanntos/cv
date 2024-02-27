@@ -215,12 +215,13 @@
 
  <!-- Script jsPDF -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
  <!-- Script personalizado -->
  <script>
    // Script para salvar como PDF
    function salvarComoPDF() {
-     const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
-     const pdf = new jsPDF();
+     const filename = 'cv.pdf';
+     const pdf = new window.jspdf.jsPDF();
 
      // Ajuste para garantir que a página seja totalmente carregada antes de salvar como PDF
      pdf.addHTML(document.body, function () {
