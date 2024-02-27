@@ -86,7 +86,9 @@
           </div>
         </div><br>
 
-        <button onclick="salvarComoPDF()">Salvar como PDF</button>
+        <div style="text-align: center;">
+          <button onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
+        </div>
 
         <!-- End Left Column -->
       </div>
@@ -187,11 +189,14 @@
     </div>
 
     <!-- End Page Container -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
     <script>
       function salvarComoPDF() {
           const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
           const pdf = new jsPDF();
 
+          // Ajuste para garantir que a página seja totalmente carregada antes de salvar como PDF
           pdf.addHTML(document.body, function() {
               pdf.save(filename);
           });
