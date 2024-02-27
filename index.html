@@ -212,33 +212,38 @@
         class="fa fa-linkedin w3-hover-opacity"></i></a>
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
   </footer>
+<!-- Script jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
- <!-- Script jsPDF -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<!-- Mova a função salvarComoPDF para o início do script ou fora de qualquer escopo -->
+<script>
+  function salvarComoPDF() {
+    const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
+    const pdf = new jsPDF();
 
- function salvarComoPDF() {
-  const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
-  const pdf = new jsPDF();
+    // Opções para a imagem, ajuste conforme necessário
+    const options = {
+      scale: 2 // Ajusta a escala da imagem
+    };
 
-  // Opções para a imagem, ajuste conforme necessário
-  const options = {
-    scale: 2 // Ajusta a escala da imagem
-  };
+    // Converte o conteúdo HTML para uma imagem usando html2canvas
+    html2canvas(document.body, options).then(canvas => {
+      // Adiciona a imagem ao PDF
+      const imageData = canvas.toDataURL('image/png');
+      pdf.addImage(imageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
 
-  // Converte o conteúdo HTML para uma imagem usando html2canvas
-  html2canvas(document.body, options).then(canvas => {
-    // Adiciona a imagem ao PDF
-    const imageData = canvas.toDataURL('image/png');
-    pdf.addImage(imageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+      // Salva o PDF
+      pdf.save(filename);
+    });
+  }
+</script>
 
-    // Salva o PDF
-    pdf.save(filename);
-  });
-}
- <!-- Botão "Salvar como PDF" -->
- <div style="text-align: center;">
-   <button id="btnSalvarComoPDF" onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
- </div>
+<!-- Botão "Salvar como PDF" -->
+<div style="text-align: center;">
+  <button id="btnSalvarComoPDF" onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
+</div>
+
 
 </body>
 
