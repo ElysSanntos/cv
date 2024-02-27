@@ -200,17 +200,7 @@
 
     <!-- End Page Container -->
   
-    <script>
-      function salvarComoPDF() {
-        const filename = 'cv.pdf';
-        const pdf = new jsPDF();
-
-        // Ajuste para garantir que a página seja totalmente carregada antes de salvar como PDF
-        pdf.addHTML(document.body, function() {
-          pdf.save(filename);
-        });
-      }
-    </script>
+    
 
   </div>
 
@@ -223,7 +213,18 @@
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
   </footer>
 
+  <script>
+    function salvarComoPDF() {
+      const filename = 'cv.pdf';
+      const pdf = new jsPDF();
 
+      // Ajuste para garantir que a página seja totalmente carregada antes de salvar como PDF
+      pdf.addHTML(document.body, function() {
+        pdf.save(filename);
+      });
+    }
+  </script>
+  
 </body>
 
 </html>
