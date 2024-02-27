@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> -->
   <style>
     html,
     body,
@@ -93,10 +93,10 @@
             <br>
           </div>
         </div><br>
-        <!-- Botão "Salvar como PDF" -->
+        <!-- Botão "Salvar como PDF"
         <div style="text-align: center;">
           <button id="btnSalvarComoPDF" onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
-        </div>
+        </div> -->
 
         <!-- End Left Column -->
       </div>
@@ -213,18 +213,27 @@
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
   </footer>
 
-  <script>
-    function salvarComoPDF() {
-      const filename = 'cv.pdf';
-      const pdf = new jsPDF();
+ <!-- Script jsPDF -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+ <!-- Script personalizado -->
+ <script>
+   // Script para salvar como PDF
+   function salvarComoPDF() {
+     const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
+     const pdf = new jsPDF();
 
-      // Ajuste para garantir que a página seja totalmente carregada antes de salvar como PDF
-      pdf.addHTML(document.body, function() {
-        pdf.save(filename);
-      });
-    }
-  </script>
-  
+     // Ajuste para garantir que a página seja totalmente carregada antes de salvar como PDF
+     pdf.addHTML(document.body, function () {
+       pdf.save(filename);
+     });
+   }
+ </script>
+
+ <!-- Botão "Salvar como PDF" -->
+ <div style="text-align: center;">
+   <button id="btnSalvarComoPDF" onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
+ </div>
+
 </body>
 
 </html>
