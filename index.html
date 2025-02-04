@@ -247,7 +247,6 @@
 </footer>
 
 
-<!-- Mova a função salvarComoPDF para o início do script ou fora de qualquer escopo -->
 <script>
   function salvarComoPDF() {
     const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
@@ -258,22 +257,16 @@
       scale: 2 // Ajusta a escala da imagem
     };
 
-    // Converte o conteúdo HTML para uma imagem usando html2canvas
-    html2canvas(document.body, options).then(canvas => {
+    // Captura a parte específica do conteúdo HTML (no caso, toda a página)
+    html2canvas(document.querySelector(".w3-content"), options).then(canvas => {
       // Adiciona a imagem ao PDF
       const imageData = canvas.toDataURL('image/png');
       pdf.addImage(imageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
-
-      // Salva o PDF
-      pdf.save(filename);
+      pdf.save(filename); // Salva o PDF com o nome do arquivo
     });
   }
 </script>
 
-<!-- Botão "Salvar como PDF" -->
-<div style="text-align: center;">
-  <button id="btnSalvarComoPDF" onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
-</div>
 
 
 </body>
