@@ -2,21 +2,25 @@
 <!-- @falvojr: Reference article https://www.w3schools.com/howto/howto_website_create_resume.asp -->
 <!-- @falvojr: Useful link to use fontawesome (fa) icons: https://fontawesome.com/v4/icons/ -->
 <html lang="pt-BR">
-
-<head>
-  <title>Elis Santos</title>
-
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<head>
+  <title>Elis Santos</title>
+  
+   <!-- Carregar o Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Carregar jsPDF (certifique-se de que está antes do seu código que usa jsPDF) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- Carregar html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-    <!-- Carregar o Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
-  <!-- Script jsPDF -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    
+
   <style>
     html,
     body,
@@ -32,18 +36,22 @@
     /* Estilo para centralizar o botão e manter o padrão adotado no currículo */
     #btnSalvarComoPDF {
       margin: 20px auto;
-      /* Centraliza o botão horizontalmente */
       display: block;
-      /* Faz o botão ocupar a largura total do container */
       width: 200px;
-      /* Define a largura do botão */
-
+      padding: 10px;
+      background-color: #673ab7; /* Cor mais forte para o botão */
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
     }
   </style>
 
 </head>
 
 <body class="w3-light-grey" cz-shortcut-listen="true">
+
+  <!-- Aqui está o div que contém todo o conteúdo do currículo -->
+  <div id="curriculo">
 
   <!-- Page Container -->
   <div class="w3-content w3-margin-top" style="max-width:1400px;">
@@ -119,7 +127,6 @@
             <br>
           </div>
         </div><br>
-       
 
         <!-- End Left Column -->
       </div>
@@ -128,15 +135,15 @@
       <div class="w3-twothird">
 
         <!-- Conteúdo do currículo -->
-        <div class="w3-container w3-card w3-white w3-margin-bottom
-          <h2 class=" w3-text-grey w3-padding-16"><i
-            class="fa fa-terminal fa-fw w3-margin-right w3-xxlarge w3-text-deep-purple"></i>Sobre</h2>
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 class="w3-text-grey w3-padding-16">
+            <i class="fa fa-terminal fa-fw w3-margin-right w3-xxlarge w3-text-deep-purple"></i>Sobre
+          </h2>
           <p>Com trajetória profissional voltada à Tecnologia, busco oportunidades para aplicar e expandir meu
             conhecimento, contribuindo ativamente para o sucesso da equipe e da empresa. Motivada por desafios e
             dedicada ao constante desenvolvimento profissional, tenho experiência em desenvolvimento front-end com
             Angular e estou expandindo meus conhecimentos para o desenvolvimento back-end com Java, com o objetivo de me
             tornar uma desenvolvedora fullstack.</p>
-
         </div>
 
         <div class="w3-container w3-card w3-white w3-margin-bottom">
@@ -155,126 +162,45 @@
               <li>Desenvolvimento do motor que orquestra grupos de consórcio de acordo com o perfil do cliente,
                 otimizando a formação ou saúde dos grupos de forma estratégica.</li>
               <li>Implantação do serviço de virtualização de testes automatizados para auxiliar o QA.</li>
-
             </ul>
-
             <p>Federação na área de DevOps, utilizando práticas de CI/CD com CloudBees para automação de
               processos.</p>
-
             <p>Utilização de metodologia ágil com Scrum, gerenciamento de projetos com Jira, documentação das entregas
-              via Confluence, apresentações de MVP e participação em reuniões de refinamento técnico e funcionais.</p>
+              via Confluence, apresentações de MVP e participação em reuniões de refinamento técnico e funcional.</p>
+          </div>
+        </div>
+        
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 class="w3-text-grey w3-padding-16">
+            <i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge w3-text-deep-purple"></i>Formação
+          </h2>
+          <div class="w3-container">
+            <h3 class="w3-opacity"><i>Graduação</i></h3>
+            <h5 class="w3-opacity"><b>Tecnólogo em Análise e Desenvolvimento de Sistemas</b></h5>
+            <h6 class="w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016 - 2018</h6>
+            <p>Centro Universitário UNIFACEAR</p>
+          </div>
+        </div>
 
-            <p>Essa experiência foi fundamental para meu crescimento profissional, proporcionando desafios
-              e a oportunidade de aprender e desenvolver novas habilidades. Estou entusiasmada com as
-              oportunidades de crescimento e aprendizado que a BRQ Digital Solutions oferece, e estou comprometida em
-              contribuir de forma significativa para os projetos da empresa.</p>
+        <button id="btnSalvarComoPDF" onclick="salvarComoPDF()">Salvar como PDF</button>
+        
+      </div>
 
-</body>
-
-<hr>
-</div>
-
-</div>
-
-<div class="w3-container w3-card w3-white">
-  <h2 class="w3-text-grey w3-padding-16">
-    <i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge w3-text-deep-purple"></i>Educação
-  </h2>
-  <div class="w3-container">
-    <h5 class="w3-opacity"><b>Centro Universitário UniMetrocamp</b>
-      <h3 class="w3-opacity">Tecnólogo Analise de desenvolvimentos de sistemas</h3>
-    </h5>
-    <h6 class="w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>INICIO - 2012 <span
-        class="w3-tag w3-deep-purple w3-round">2015</span></h6>
-
-    <!-- <ul>
-                <li><a href="https://www.dio.me/certificate/6213111D" target="_blank">Curso: TQI Fullstack Developer (125h)</a></li>
-                <li><a href="https://www.dio.me/certificate/72361F24" target="_blank">Curso: Formação HTML Web Developer (21h)</a></li>
-                <li><a href="https://www.dio.me/certificate/64CE8868" target="_blank">Curso: Formação CSS Web Developer (46h)</a></li>
-              </ul> -->
-    <hr>
-
-
-<div class="w3-container w3-card w3-white">
-  <h2 class="w3-text-grey w3-padding-16">
-    <i class="fa fa-cog fa-spin fa-3x fa-fw w3-margin-right w3-xxlarge w3-text-deep-purple"></i>
-    <span class="sr-only">Loading...</span> Projetos
-  </h2>
-  <!-- <div class="w3-container">
-    <h6 class="w3-text-deep-purple">
-      <i class="fa fa-github fa-fw w3-margin-right"></i>
-      <a href="https://github.com/ElysSanntos?tab=repositories" target="_blank"> Repositories</a>
-    </h6> -->
-  <!-- <p>TODO</p> -->
-  <!-- </div> -->
-  <div class="w3-container">
-    <h6 class="w3-text-deep-purple">
-      <i class="fa fa-caret-up w3-margin-right" style="font-size:36px"></i>
-      <a href="https://portifolio-two-sepia.vercel.app/index.html" target="_blank"> Portofólio </a>
-    </h6>
-    <!-- <p>TODO</p> -->
-    <hr>
+    </div>
+    <!-- End Grid -->
   </div>
-  <!-- <div class="w3-container">
-              <h6 class="w3-text-deep-purple">
-                <i class="fa fa-gitlab fa-fw w3-margin-right"></i>
-                <a href="LINK_GITLAB" target="_blank">USUARIO_GITLAB/REPO</a>
-              </h6>
-              <p>TODO</p>
-            </div> -->
-</div>
+  <!-- End Page Container -->
+  </div>
 
-<!-- End Right Column -->
-</div>
-
-<!-- End Grid -->
-</div>
-
-<!-- End Page Container -->
-
-
-
-</div>
-
-<!-- Footer -->
-<footer class="w3-container w3-deep-purple w3-center w3-margin-top">
-  <p>Minhas Redes Sociais</p>
-  <a href="https://github.dev/ElysSanntos" target="_blank"><i class="fa fa-github w3-hover-opacity"></i> GitHub</a>
-  <a href="https://www.linkedin.com/in/elyssanntos07" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i> LinkedIn</a>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
-
-
-<!-- Script para salvar como PDF -->
-<script>
-  function salvarComoPDF() {
-    const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
-    const pdf = new jsPDF();
-
-    // Opções para a imagem, ajuste conforme necessário
-    const options = {
-      scale: 2 // Ajusta a escala da imagem
-    };
-
-    // Converte o conteúdo HTML para uma imagem usando html2canvas
-    html2canvas(document.body, options).then(canvas => {
-      // Adiciona a imagem ao PDF
-      const imageData = canvas.toDataURL('image/png');
-      pdf.addImage(imageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
-
-      // Salva o PDF
-      pdf.save(filename);
-    });
-  }
-</script>
-
-<!-- Botão "Salvar como PDF" -->
-<div style="text-align: center;">
-  <button id="btnSalvarComoPDF" onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
-</div>
-
-
-
+  <!-- Resto do código -->
+  <script>
+    function salvarComoPDF() {
+      html2canvas(document.querySelector("#curriculo")).then(canvas => {
+        const pdf = new jsPDF();
+        pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
+        pdf.save("Curriculo.pdf");
+      });
+    }
+  </script>
 </body>
-
 </html>
