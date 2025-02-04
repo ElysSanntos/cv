@@ -7,15 +7,14 @@
 
 <head>
   <title>Elis Santos</title>
+
+   <!-- Carregar html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <!-- Carregar jsPDF (certifique-se de que está antes do seu código que usa jsPDF) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   
    <!-- Carregar o Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <!-- Carregar jsPDF (certifique-se de que está antes do seu código que usa jsPDF) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-  <!-- Carregar html2canvas -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
@@ -195,11 +194,11 @@
   <!-- Resto do código -->
   <script>
     function salvarComoPDF() {
-      html2canvas(document.querySelector("#curriculo")).then(canvas => {
-        const pdf = new jsPDF();
-        pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
-        pdf.save("Curriculo.pdf");
-      });
+      html2canvas(document.querySelector("#curriculo"), {
+    onrendered: function (canvas) {
+      const pdf = new jsPDF();
+      pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
+      pdf.save("Curriculo.pdf");
     }
   </script>
 </body>
