@@ -107,19 +107,14 @@
       </div>
     </div>
  
- <script>
-      function salvarComoPDF() {
-        html2canvas(document.querySelector("#curriculo")).then(function(canvas) {
-          const { jsPDF } = window.jspdf;
-          const pdf = new jsPDF();
-          
-          // Adicionando a imagem do canvas no PDF (posição x=0, y=0)
-          pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
-          
-          // Salvando o PDF com o nome 'Curriculo.pdf'
-          pdf.save("Curriculo.pdf");
-        });
-      }
-    </script>
+<script>
+    function salvarComoPDF() {
+      html2canvas(document.querySelector("#curriculo"), function(canvas) {
+        const pdf = new jsPDF();
+        pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0);
+        pdf.save("Curriculo.pdf");
+      });
+    }
+  </script>
 </body>
 </html>
