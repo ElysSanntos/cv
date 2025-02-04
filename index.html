@@ -117,10 +117,7 @@
             <br>
           </div>
         </div><br>
-        Botão "Salvar como PDF"
-        <div style="text-align: center;">
-          <button id="btnSalvarComoPDF" onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
-        </div> 
+       
 
         <!-- End Left Column -->
       </div>
@@ -247,6 +244,7 @@
 </footer>
 
 
+<!-- Script para salvar como PDF -->
 <script>
   function salvarComoPDF() {
     const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
@@ -257,15 +255,22 @@
       scale: 2 // Ajusta a escala da imagem
     };
 
-    // Captura a parte específica do conteúdo HTML (no caso, toda a página)
-    html2canvas(document.querySelector(".w3-content"), options).then(canvas => {
+    // Converte o conteúdo HTML para uma imagem usando html2canvas
+    html2canvas(document.body, options).then(canvas => {
       // Adiciona a imagem ao PDF
       const imageData = canvas.toDataURL('image/png');
       pdf.addImage(imageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
-      pdf.save(filename); // Salva o PDF com o nome do arquivo
+
+      // Salva o PDF
+      pdf.save(filename);
     });
   }
 </script>
+
+<!-- Botão "Salvar como PDF" -->
+<div style="text-align: center;">
+  <button id="btnSalvarComoPDF" onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
+</div>
 
 
 
