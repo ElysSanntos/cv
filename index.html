@@ -1,286 +1,136 @@
 <!DOCTYPE html>
-<!-- @falvojr: Reference article https://www.w3schools.com/howto/howto_website_create_resume.asp -->
-<!-- @falvojr: Useful link to use fontawesome (fa) icons: https://fontawesome.com/v4/icons/ -->
 <html lang="pt-BR">
 
 <head>
-  <title>Elis Santos</title>
-
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elisangela C. Santos - Currículo</title>
 
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+  <!-- Links para CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="styles.css"> <!-- Arquivo CSS externo para personalizações -->
+
   <!-- Script jsPDF -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-  <style>
-    html,
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: "Roboto", sans-serif
-    }
-
-    /* Estilo para centralizar o botão e manter o padrão adotado no currículo */
-    #btnSalvarComoPDF {
-      margin: 20px auto;
-      /* Centraliza o botão horizontalmente */
-      display: block;
-      /* Faz o botão ocupar a largura total do container */
-      width: 200px;
-      /* Define a largura do botão */
-
-    }
-  </style>
 
 </head>
 
-<body class="w3-light-grey" cz-shortcut-listen="true">
+<body class="w3-light-grey">
 
-  <!-- Page Container -->
-  <div class="w3-content w3-margin-top" style="max-width:1400px;">
+  <!-- Página Principal -->
+  <div class="container">
 
-    <!-- The Grid -->
-    <div class="w3-row-padding">
+    <!-- Coluna Esquerda -->
+    <section class="left-column">
+      <div class="card">
+        <header>
+          <h2>Elisangela C. Santos</h2>
+          <p class="job-title">Desenvolvedora Front-End Junior</p>
+        </header>
 
-      <!-- Left Column -->
-      <div class="w3-third">
-
-        <div class="w3-white w3-text-grey w3-card-4">
-          <div class="w3-container">
-            <h2>Elisangela C. Santos</h2>
-          </div>
-          <div class="w3-container">
-            <!-- Informações pessoais -->
-            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-deep-purple"></i>Dev Front-End Junior
-            </p>
-            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-deep-purple"></i>Maringá - Pr</p>
-            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-deep-purple"></i>elisverso77@gmail.com
-            </p>
-            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-deep-purple"></i>(44) 9. 9965-2595</p>
-            <hr>
-
-            <p class="w3-large">
-              <b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-deep-purple"></i>Skills</b>
-            </p>
-            <p>HTML</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-deep-purple" style="width:60%">60%</div>
-            </div>
-            <p>CSS</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-deep-purple" style="width:40%">60%</div>
-            </div>
-            <p>Javascript</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-deep-purple" style="width:30%">65%</div>
-            </div>
-            <p>Node</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-deep-purple" style="width:30%">65%</div>
-            </div>
-            <p>Angular</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-deep-purple" style="width:50%">70%</div>
-            </div>
-            <p>Karma</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-deep-purple" style="width:50%">60%</div>
-            </div>
-            <p>Jasmine</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-deep-purple" style="width:50%">60%</div>
-            </div>
-            <p>Agile - Scrum</p>
-            <div class="w3-light-grey w3-round-xlarge w3-small">
-              <div class="w3-container w3-center w3-round-xlarge w3-deep-purple" style="width:50%">65%</div>
-            </div>
-            <br>
-
-            <p class="w3-large w3-text-theme">
-              <b><i class="fa fa-globe fa-fw w3-margin-right w3-text-deep-purple"></i>Idiomas</b>
-            </p>
-            <p>Português</p>
-            <div class="w3-light-grey w3-round-xlarge">
-              <div class="w3-round-xlarge w3-deep-purple" style="height:24px;width:90%"></div>
-            </div>
-            <p>Inglês</p>
-            <div class="w3-light-grey w3-round-xlarge">
-              <div class="w3-round-xlarge w3-deep-purple" style="height:24px;width:50%"></div>
-            </div>
-            <br>
-          </div>
-        </div><br>
-        <!-- Botão "Salvar como PDF"
-        <div style="text-align: center;">
-          <button id="btnSalvarComoPDF" onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
-        </div> -->
-
-        <!-- End Left Column -->
-      </div>
-
-      <!-- Right Column -->
-      <div class="w3-twothird">
-
-        <!-- Conteúdo do currículo -->
-        <div class="w3-container w3-card w3-white w3-margin-bottom
-          <h2 class=" w3-text-grey w3-padding-16"><i
-            class="fa fa-terminal fa-fw w3-margin-right w3-xxlarge w3-text-deep-purple"></i>Sobre</h2>
-          <p>Com trajetória profissional voltada à Tecnologia, busco oportunidades para aplicar e expandir meu
-            conhecimento, contribuindo ativamente para o sucesso da equipe e da empresa. Motivada por desafios e
-            dedicada ao constante desenvolvimento profissional, tenho experiência em desenvolvimento front-end com
-            Angular e estou expandindo meus conhecimentos para o desenvolvimento back-end com Java, com o objetivo de me
-            tornar uma desenvolvedora fullstack.</p>
-
+        <div class="contact-info">
+          <p><i class="fa fa-briefcase"></i> Dev Front-End Junior</p>
+          <p><i class="fa fa-home"></i> Maringá - PR</p>
+          <p><i class="fa fa-envelope"></i> elisverso77@gmail.com</p>
+          <p><i class="fa fa-phone"></i> (44) 9 9965-2595</p>
         </div>
 
-        <div class="w3-container w3-card w3-white w3-margin-bottom">
-          <h2 class="w3-text-grey w3-padding-16">
-            <i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-deep-purple"></i>Experiências
-          </h2>
-          <div class="w3-container">
-            <h3 class="w3-opacity"><i>Desenvolvedora Front-end com Angular Junior</i></h3>
-            <h5 class="w3-opacity"><b>BRQ Digital Solutions</b></h5>
-            <h6 class="w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Novembro de 2021 - <span
-                class="w3-tag w3-deep-purple w3-round">Atual</span></h6>
-            <h3>Cliente Santander - Área de Consórcio:</h3>
-            <ul>
-              <li>Otimização da jornada de aquisição de consórcios para os clientes por meio dos canais de atendimento
-                online e parceiros.</li>
-              <li>Desenvolvimento do motor que orquestra grupos de consórcio de acordo com o perfil do cliente,
-                otimizando a formação ou saúde dos grupos de forma estratégica.</li>
-              <li>Implantação do serviço de virtualização de testes automatizados para auxiliar o QA.</li>
+        <!-- Skills -->
+        <section class="skills">
+          <h3>Habilidades</h3>
+          <p>HTML</p>
+          <div class="progress-bar" style="width: 60%"></div>
 
-            </ul>
+          <p>CSS</p>
+          <div class="progress-bar" style="width: 40%"></div>
 
-            <p>Federação na área de DevOps, utilizando práticas de CI/CD com CloudBees para automação de
-              processos.</p>
+          <p>Javascript</p>
+          <div class="progress-bar" style="width: 65%"></div>
 
-            <p>Utilização de metodologia ágil com Scrum, gerenciamento de projetos com Jira, documentação das entregas
-              via Confluence, apresentações de MVP e participação em reuniões de refinamento técnico e funcionais.</p>
+          <p>Angular</p>
+          <div class="progress-bar" style="width: 70%"></div>
 
-            <p>Essa experiência foi fundamental para meu crescimento profissional, proporcionando desafios
-              e a oportunidade de aprender e desenvolver novas habilidades. Estou entusiasmada com as
-              oportunidades de crescimento e aprendizado que a BRQ Digital Solutions oferece, e estou comprometida em
-              contribuir de forma significativa para os projetos da empresa.</p>
+          <p>Karma</p>
+          <div class="progress-bar" style="width: 60%"></div>
 
-</body>
+          <p>Agile - Scrum</p>
+          <div class="progress-bar" style="width: 65%"></div>
+        </section>
 
-<hr>
-</div>
+        <!-- Idiomas -->
+        <section class="languages">
+          <h3>Idiomas</h3>
+          <p>Português: Fluente</p>
+          <p>Inglês: Intermediário</p>
+        </section>
 
-</div>
+      </div>
+    </section>
 
-<div class="w3-container w3-card w3-white">
-  <h2 class="w3-text-grey w3-padding-16">
-    <i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge w3-text-deep-purple"></i>Educação
-  </h2>
-  <div class="w3-container">
-    <h5 class="w3-opacity"><b>Centro Universitário UniMetrocamp</b>
-      <h3 class="w3-opacity">Tecnólogo Analise de desenvolvimentos de sistemas</h3>
-    </h5>
-    <h6 class="w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>INICIO - 2012 <span
-        class="w3-tag w3-deep-purple w3-round">2015</span></h6>
+    <!-- Coluna Direita -->
+    <section class="right-column">
+      <!-- Sobre -->
+      <article class="about">
+        <h3>Sobre</h3>
+        <p>Com uma trajetória profissional voltada para a tecnologia, estou sempre em busca de novos desafios. Tenho experiência em desenvolvimento front-end com Angular e estou me aprofundando em back-end com Java, com o objetivo de me tornar uma desenvolvedora fullstack.</p>
+      </article>
 
-    <!-- <ul>
-                <li><a href="https://www.dio.me/certificate/6213111D" target="_blank">Curso: TQI Fullstack Developer (125h)</a></li>
-                <li><a href="https://www.dio.me/certificate/72361F24" target="_blank">Curso: Formação HTML Web Developer (21h)</a></li>
-                <li><a href="https://www.dio.me/certificate/64CE8868" target="_blank">Curso: Formação CSS Web Developer (46h)</a></li>
-              </ul> -->
-    <hr>
+      <!-- Experiência -->
+      <article class="experience">
+        <h3>Experiência</h3>
+        <h4>Desenvolvedora Front-End com Angular Junior</h4>
+        <h5>BRQ Digital Solutions | Novembro de 2021 - Atual</h5>
+        <ul>
+          <li>Otimização da jornada de aquisição de consórcios para os clientes.</li>
+          <li>Desenvolvimento de motor que orquestra grupos de consórcio.</li>
+          <li>Implantação de virtualização de testes automatizados para auxiliar o QA.</li>
+        </ul>
+      </article>
+
+      <!-- Educação -->
+      <article class="education">
+        <h3>Educação</h3>
+        <h4>Centro Universitário UniMetrocamp</h4>
+        <p>Tecnólogo em Análise e Desenvolvimento de Sistemas</p>
+        <p>2012 - 2015</p>
+      </article>
+
+      <!-- Projetos -->
+      <article class="projects">
+        <h3>Projetos</h3>
+        <a href="https://portifolio-two-sepia.vercel.app/index.html" target="_blank">Visite meu Portfólio</a>
+      </article>
+    </section>
+
   </div>
-  <!-- <div class="w3-container">
-              <h5 class="w3-opacity"><b>Centro Educacional Teodoro Sampaio</b></h5>
-              <h6 class="w3-text-deep-purple"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1993 - 1995</h6>
-              <p>Técnico em Contabilidade</p>
-            </div> -->
-</div>
 
-<div class="w3-container w3-card w3-white">
-  <h2 class="w3-text-grey w3-padding-16">
-    <i class="fa fa-cog fa-spin fa-3x fa-fw w3-margin-right w3-xxlarge w3-text-deep-purple"></i>
-    <span class="sr-only">Loading...</span> Projetos
-  </h2>
-  <!-- <div class="w3-container">
-    <h6 class="w3-text-deep-purple">
-      <i class="fa fa-github fa-fw w3-margin-right"></i>
-      <a href="https://github.com/ElysSanntos?tab=repositories" target="_blank"> Repositories</a>
-    </h6> -->
-  <!-- <p>TODO</p> -->
-  <!-- </div> -->
-  <div class="w3-container">
-    <h6 class="w3-text-deep-purple">
-      <i class="fa fa-caret-up w3-margin-right" style="font-size:36px"></i>
-      <a href="https://portifolio-two-sepia.vercel.app/index.html" target="_blank"> Portofólio </a>
-    </h6>
-    <!-- <p>TODO</p> -->
-    <hr>
-  </div>
-  <!-- <div class="w3-container">
-              <h6 class="w3-text-deep-purple">
-                <i class="fa fa-gitlab fa-fw w3-margin-right"></i>
-                <a href="LINK_GITLAB" target="_blank">USUARIO_GITLAB/REPO</a>
-              </h6>
-              <p>TODO</p>
-            </div> -->
-</div>
+  <!-- Rodapé -->
+  <footer>
+    <p>Minhas Redes Sociais</p>
+    <a href="https://github.dev/ElysSanntos" target="_blank"><i class="fa fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/elyssanntos07" target="_blank"><i class="fa fa-linkedin"></i></a>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  </footer>
 
-<!-- End Right Column -->
-</div>
+  <!-- Script para salvar como PDF -->
+  <script>
+    function salvarComoPDF() {
+      const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
+      const pdf = new jsPDF();
 
-<!-- End Grid -->
-</div>
+      const options = {
+        scale: 2
+      };
 
-<!-- End Page Container -->
-
-
-
-</div>
-
-<!-- Footer -->
-<footer class="w3-container w3-deep-purple w3-center w3-margin-top">
-  <p>Minhas Redes Sociais</p>
-  <a href="https://github.dev/ElysSanntos" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
-  <a href="https://www.linkedin.com/in/elyssanntos07" target="_blank"><i
-      class="fa fa-linkedin w3-hover-opacity"></i></a>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
-</footer>
-
-
-<!-- Mova a função salvarComoPDF para o início do script ou fora de qualquer escopo -->
-<script>
-  function salvarComoPDF() {
-    const filename = 'cv_Elisangela-Conceicao-Santos.pdf';
-    const pdf = new jsPDF();
-
-    // Opções para a imagem, ajuste conforme necessário
-    const options = {
-      scale: 2 // Ajusta a escala da imagem
-    };
-
-    // Converte o conteúdo HTML para uma imagem usando html2canvas
-    html2canvas(document.body, options).then(canvas => {
-      // Adiciona a imagem ao PDF
-      const imageData = canvas.toDataURL('image/png');
-      pdf.addImage(imageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
-
-      // Salva o PDF
-      pdf.save(filename);
-    });
-  }
-</script>
-
-<!-- Botão "Salvar como PDF" -->
-<div style="text-align: center;">
-  <button id="btnSalvarComoPDF" onclick="salvarComoPDF()" class="w3-button w3-deep-purple">Salvar como PDF</button>
-</div>
-
+      html2canvas(document.body, options).then(canvas => {
+        const imageData = canvas.toDataURL('image/png');
+        pdf.addImage(imageData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+        pdf.save(filename);
+      });
+    }
+  </script>
 
 </body>
 
